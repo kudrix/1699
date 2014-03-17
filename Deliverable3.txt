@@ -1,0 +1,170 @@
+project under test: 
+Recipe Website
+
+tested
+by
+Daniel Hartman
+&
+Sergei Kudrytski
+
+
+
+
+CS1699 - Deliverable 3:
+Systems Testing with BDD
+
+
+
+Introduction
+
+The project under test is a recipe sharing website. The site allows users to login and post recipes
+as well as to search the list of recipes posted by other users and post your comments to the recipes.
+We decided to test this website because we felt that its simple interface would be appropriate to use
+as an introduction to selenium testing.
+
+
+Link to html and java step definitions: https://github.com/kudrix/1699/tree/master
+
+Link to project under test:  www.seanperryproductions.com/recipe 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Feature 1: Create a new account
+
+As a new user
+I want to be able to create an account
+So that I can login and use the website.
+
+Scenario 1: Successful account creation
+Given there is not a ‘user1’ in the system
+When username is ‘user1’ 
+And password is ‘pass1’
+And confirm password is ‘pass1’
+And Full name is ‘name’
+And email is ‘name1@mail.com’
+Then user1 should be created in the system
+And user should be informed about that.
+
+Scenario 2: Username exists
+Given there is a ‘user1’ in the system
+When username is ‘user1’
+And password is ‘pass1’
+And confirm password is ‘pass1’
+And Full name is ‘name1’
+And email is ‘name1@mail.com’
+Then user1 should not be created
+And user should be informed that username already taken.
+
+Scenario 3: Passwords do not match when creating account
+Given there is not a ‘user2’ in the system
+When username is ‘user2’
+And password is ‘pass2’
+And confirm password is ‘pass3’
+And Full name is ‘name2’
+And email is ‘name2@email.com’
+Then user2 should not be created
+And user should be informed that passwords did not match
+
+
+
+
+
+Feature 2: Posts a recipe
+
+As a user
+I want to post new recipes
+So that I can share them with other users
+
+Scenario 4: Successful recipe posting
+Given the user is logged in
+And there is not a ‘Chicken Ramen’ recipe
+When title is ‘Chicken Ramen’
+And Short Description is ‘Classic Ramen noodles’
+And Ingredients is ‘Ramen package, 2 cups water’
+And Directions is ‘Bring water to boil. Add noodles from package. Boil 7 minutes. Add flavor package.’
+And Submit is clicked
+Then Chicken Ramen recipe should be added to the system.
+And Recipe posted should be displayed
+
+Scenario 5: Unsuccessful recipe posting
+Given the user is NOT logged in
+When the user clicks ‘Post a new recipe’ link
+Then the system should display message: ‘Sorry, you do not have permission to post recipes ’
+
+
+Feature 3: Search for a recipe 
+
+As a user
+I want to search for a specific recipe
+So that I can use it when I am cooking
+
+Scenario 6: Successful recipe search (exact match)
+Given there is a ‘Fried Egg’ recipe in the database
+When the user types ‘Fried Egg’ in the search window
+And clicks ‘find’ button
+Then the system should display the ‘Fried Egg’ recipe
+
+
+Scenario 7: Successful recipe search (match all that include)
+Given there are recipes in the database that contain ‘chicken’ in their title
+When the user types ‘chicken’ in the search window
+And clicks ‘find’ button
+Then the system should display all recipes that contain ‘chicken’ in their title
+
+
+Scenario 8: Unsuccessful recipe search
+Given there is no ‘Pierogies’ recipe in the database
+When the user types ‘Pierogies’ in the search window
+And clicks Search button
+Then the system should display the message that there was no recipe for ‘Pierogies’ found.
+
+ 
+Feature 4: Post a comment to a selected recipe 
+
+As a user
+I want to post a comment to a specific recipe
+So that other users can see it 
+
+Scenario 9: Successful comment posting
+Given there is a recipe displayed 
+And the user is logged in
+When the user clicks ‘Add comment’ link
+And types in his/her comment in the text window
+And clicks ‘submit’ button
+Then the system should display message: ‘Comment posted’
+
+Scenario 10: Unsuccessful comment posting
+Given there is a recipe displayed 
+And user is not logged in
+When the user clicks ‘Add comment’ link
+Then the system should display message: ‘Sorry, you do not have permission to post comments ’
+
+
+
+
