@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head profile="http://selenium-ide.openqa.org/profiles/test-case">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link rel="selenium.base" href="http://localhost:8888/" />
+<title>scenario1</title>
+</head>
+<body>
+<table cellpadding="1" cellspacing="1" border="1">
+<thead>
+<tr><td rowspan="1" colspan="3">scenario2</td></tr>
+</thead><tbody>
+<tr>
+	<td>open</td>
+	<td>/recipe/index.php</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>//div[@id='nav']/table/tbody/tr[4]/td/a/strong</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>name=userid</td>
+	<td>user1</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>name=password</td>
+	<td>pass1</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>name=password2</td>
+	<td>pass1</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>name=fullname</td>
+	<td>name1</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>name=email</td>
+	<td>name1@mail.com</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>css=#main &gt; form &gt; input[type=&quot;submit&quot;]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>Sorry, that user name is already taken.</td>
+	<td></td>
+</tr>
+</tbody></table>
+</body>
+</html>
